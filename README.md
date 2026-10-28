@@ -8,9 +8,6 @@ No se realizan compras ni cobros reales. Utiliza únicamente datos ficticios.
 [Abrir la demo](https://modashop-yn8l.onrender.com)
 
 No necesitas instalar nada ni crear una cuenta para probar el catálogo.
-El alojamiento gratuito puede suspender la aplicación por inactividad;
-la primera carga puede tardar alrededor de un minuto o más.
-Abre la web unos minutos antes de presentarla.
 
 ## Recorrido de demostración
 
@@ -58,4 +55,4 @@ no existe un historial completo de movimientos de stock.
 - Sin pagos reales ni pantalla visual de administración.
 - Sujeto a los límites y condiciones de los planes gratuitos de los proveedores.
 
-Para presentar la demo, comparte únicamente la URL pública de la web.
+
