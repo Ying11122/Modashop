@@ -1,0 +1,271 @@
+* { 
+    box-sizing: border-box; 
+}
+
+body {
+    margin: 0;
+    font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+    background: #f6f5f3;
+    color: #222;
+}
+
+/* ---------- Cabecera ---------- */
+.cabecera {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background: #fff;
+    border-bottom: 1px solid #e3e0db;
+}
+.cabecera h1 { 
+    margin: 0; 
+    font-family:Verdana, Geneva, Tahoma, sans-serif; 
+    font-size: 2rem; 
+    letter-spacing: .05em; 
+}
+
+.cabecera-acciones { 
+    display: flex; 
+    gap: .5rem; 
+}
+
+main { 
+    max-width: 1200px; 
+    margin: 0 auto; 
+    padding: 1.5rem; 
+}
+
+/* ---------- Botones ---------- */
+.btn {
+    padding: .5rem 1rem;
+    border: 1px solid #c9c5be;
+    border-radius: 6px;
+    background: #fff;
+    cursor: pointer;
+    font: inherit;
+}
+.btn:hover { background: #f0eeea; }
+
+.btn-primario { background: #222; color: #fff; border-color: #222; }
+
+.btn-primario:hover { background: #444; }
+
+.btn-peligro { color: #b3261e; border-color: #e0b4b0; }
+
+.btn:disabled { opacity: .45; cursor: not-allowed; }
+
+/* ---------- Filtros ---------- */
+.filtros {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .75rem;
+    margin-bottom: 1rem;
+}
+
+.filtros input, .filtros select {
+    padding: .5rem;
+    border: 1px solid #c9c5be;
+    border-radius: 6px;
+    font: inherit;
+    background: #fff;
+}
+
+.filtros input { flex: 1 1 200px; }
+
+/* ---------- Mensajes ---------- */
+.mensaje { padding: .6rem 1rem; border-radius: 6px; margin: 0 0 1rem; }
+
+.mensaje.ok { background: #e6f4ea; color: #1e6b34; }
+
+.mensaje.error { background: #fce8e6; color: #b3261e; }
+
+/* ---------- Catálogo ---------- */
+
+/* Sin separación vertical entre filas: el espacio lo da el margen de cada tarjeta.
+   Así las seis filas internas de las tarjetas quedan alineadas entre sí. */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    column-gap: 1.25rem;
+    row-gap: 0;
+}
+
+.vacio { grid-column: 1 / -1; text-align: center; color: #777; padding: 2rem; }
+
+/* Cada tarjeta ocupa 6 filas del grid y comparte sus alturas con las demás:
+   imagen, título, descripción, etiquetas, tallas, compra */
+.tarjeta {
+    display: grid;
+    grid-template-rows: subgrid;
+    grid-row: span 6;
+    row-gap: 0;
+    margin-bottom: 1.25rem;
+    background: #fff;
+    border: 1px solid #e3e0db;
+    border-radius: 10px;
+    overflow: hidden;
+    text-align: center;
+}
+
+/* 1. Imagen */
+.tarjeta img, .sin-imagen {
+    display: block;
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    background: #ece9e4;
+}
+
+.sin-imagen { display: flex; align-items: center; justify-content: center; color: #999; }
+
+/* 2. Título */
+.t-titulo {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 1rem 1rem 0;
+}
+
+.categoria { font-size: .75rem; text-transform: uppercase; letter-spacing: .08em; color: #888; }
+
+.t-titulo h3 { margin: .2rem 0 0; font-size: 1.05rem; }
+
+/* 3. Descripción (máximo 3 líneas) */
+.descripcion {
+    margin: .6rem 1rem 0;
+    font-size: .85rem;
+    color: #555;
+    display: -webkit-box;
+    -line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+/* 4. Etiquetas y 5. Tallas */
+.chips, .tallas {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: flex-start;
+    gap: .35rem;
+    padding: .75rem 1rem 0;
+}
+
+.chip {
+    font-size: .75rem;
+    padding: .15rem .55rem;
+    background: #efe9dd;
+    border-radius: 999px;
+}
+
+.chip-color { background: #e4e8ee; }
+
+.talla {
+    min-width: 2rem;
+    text-align: center;
+    padding: .2rem .5rem;
+    border: 1px solid #222;
+    border-radius: 4px;
+    font-size: .8rem;
+}
+
+.talla.agotada { color: #aaa; border-color: #ccc; text-decoration: line-through; }
+
+/* 6. Compra: desplegable de talla y botón debajo */
+.compra {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+    padding: .9rem 1rem 1rem;
+}
+
+.compra select {
+    width: 100%;
+    padding: .5rem;
+    border: 1px solid #c9c5be;
+    border-radius: 6px;
+    font: inherit;
+    background: #fff;
+    text-align: center;
+    text-align-last: center;
+}
+
+.compra .btn { width: 100%; }
+
+.agotado {
+    margin: 0;
+    padding: .9rem 1rem 1rem;
+    color: #b3261e;
+    font-size: .9rem;
+    font-weight: 600;
+}
+
+/* ---------- Diálogos ---------- */
+dialog {
+    border: none;
+    border-radius: 12px;
+    padding: 1.5rem;
+    width: min(520px, 92vw);
+}
+
+dialog::backdrop { background: rgba(0, 0, 0, .45); }
+
+dialog h2 { margin-top: 0; }
+
+dialog label { display: block; margin-bottom: .75rem; font-size: .9rem; }
+
+dialog input:not([type="checkbox"]), dialog select, dialog textarea {
+    display: block;
+    width: 100%;
+    margin-top: .25rem;
+    padding: .5rem;
+    border: 1px solid #c9c5be;
+    border-radius: 6px;
+    font: inherit;
+}
+
+.acciones { display: flex; justify-content: flex-end; gap: .5rem; }
+
+/* ---------- Carrito ---------- */
+.dlg-carrito { width: min(560px, 94vw); }
+
+.dlg-carrito .acciones { justify-content: space-between; gap: .5rem; margin-top: 1rem; }
+
+.dlg-carrito .vacio { padding: 1rem; }
+
+.linea {
+    display: flex;
+    align-items: center;
+    gap: .75rem;
+    padding: .6rem 0;
+    border-bottom: 1px solid #eee;
+}
+
+.linea img, .mini-sin-imagen {
+    width: 56px;
+    height: 56px;
+    object-fit: cover;
+    border-radius: 6px;
+    background: #ece9e4;
+    flex-shrink: 0;
+}
+
+.linea-info { flex: 1; display: flex; flex-direction: column; font-size: .9rem; }
+
+.linea-info span { color: #666; }
+
+.aviso { margin: .2rem 0 0; color: #b3261e; font-size: .8rem; }
+
+.cantidad { display: flex; align-items: center; gap: .4rem; }
+
+.cantidad .btn { padding: .2rem .6rem; }
+
+/* ---------- Pedido ---------- */
+.consentimiento {
+    display: flex;
+    align-items: flex-start;
+    gap: .5rem;
+}
+
+.consentimiento input { margin-top: .2rem; }

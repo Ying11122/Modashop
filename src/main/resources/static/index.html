@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Moda Shop</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header class="cabecera">
+        <h1>Moda Shop</h1>
+        <div class="cabecera-acciones">
+            <button id="btn-carrito" class="btn">Carrito (<span id="carrito-contador">0</span>)</button>
+        </div>
+    </header>
+
+    <main>
+        <section class="filtros">
+            <input type="search" id="f-q" placeholder="Buscar por nombre...">
+            <select id="f-categoria"></select>
+            <select id="f-talla"></select>
+            <select id="f-etiqueta"></select>
+            <button id="btn-limpiar" class="btn">Limpiar filtros</button>
+        </section>
+
+        <p id="mensaje" class="mensaje" hidden></p>
+
+        <section id="catalogo" class="grid"></section>
+    </main>
+
+    <!-- Carrito -->
+    <dialog id="dlg-carrito" class="dlg-carrito">
+        <h2>Tu carrito</h2>
+        <p id="carrito-error" class="mensaje error" hidden></p>
+        <div id="carrito-lista"></div>
+        <div class="acciones">
+            <button id="btn-vaciar" class="btn btn-peligro">Vaciar carrito</button>
+            <button id="btn-cerrar-carrito" class="btn">Cerrar</button>
+            <button id="btn-finalizar" class="btn btn-primario">Finalizar pedido</button>
+        </div>
+    </dialog>
+
+    <!-- Datos para el pedido -->
+    <dialog id="dlg-pedido">
+        <form id="form-pedido">
+            <h2>Finalizar pedido</h2>
+
+            <label>Nombre y apellidos
+                <input id="ped-nombre" required maxlength="120" autocomplete="name">
+            </label>
+            <label>Email
+                <input id="ped-email" type="email" required maxlength="150" autocomplete="email">
+            </label>
+            <label>Teléfono (opcional)
+                <input id="ped-telefono" type="tel" maxlength="30" autocomplete="tel">
+            </label>
+            <label>Notas (opcional)
+                <textarea id="ped-notas" rows="3" maxlength="500"></textarea>
+            </label>
+
+            <label class="consentimiento">
+                <input type="checkbox" id="ped-consentimiento" required>
+                <span>He leído y acepto la política de privacidad</span>
+            </label>
+
+            <p id="pedido-error" class="mensaje error" hidden></p>
+
+            <div class="acciones">
+                <button type="button" id="btn-cancelar-pedido" class="btn">Cancelar</button>
+                <button type="submit" id="btn-enviar-pedido" class="btn btn-primario">Confirmar pedido</button>
+            </div>
+        </form>
+    </dialog>
+
+    <!-- Confirmación -->
+    <dialog id="dlg-confirmacion">
+        <h2>¡Pedido recibido!</h2>
+        <p id="confirmacion-texto"></p>
+        <div class="acciones">
+            <button id="btn-cerrar-confirmacion" class="btn btn-primario">Aceptar</button>
+        </div>
+    </dialog>
+
+    <script src="js/api.js"></script>
+    <script src="js/carrito.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
