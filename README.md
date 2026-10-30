@@ -5,7 +5,7 @@ No se realizan compras ni cobros reales. Utiliza únicamente datos ficticios.
 
 ## Acceso
 
-[Abrir la demo](https://modashop-yn8l.onrender.com)
+Abrir la demo : https://modashop-yn8l.onrender.com
 
 No necesitas instalar nada ni crear una cuenta para probar el catálogo.
 
